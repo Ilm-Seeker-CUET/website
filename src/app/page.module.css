@@ -9,6 +9,7 @@
   }
 }
 
+/* ── Hero ── */
 .hero {
   min-height: calc(100vh - var(--nav-height));
   display: flex;
@@ -40,10 +41,8 @@
 }
 
 .heroLabel {
-  font-size: var(--text-sm);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
+  font-size: var(--text-lg);
+  font-family: var(--font-arabic);
   color: var(--color-gold-500);
   margin-bottom: var(--space-lg);
   opacity: 0;
@@ -84,9 +83,273 @@
   animation: fadeInUp 0.6s ease 0.5s forwards;
 }
 
+/* ── Countdown Section ── */
+.countdownSection {
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-bg-elevated);
+}
+
+.countdownWrapper {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.countdownLabel {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+}
+
+.countdownEventName {
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: var(--space-sm);
+}
+
+.countdownMeta {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  margin-top: var(--space-sm);
+}
+
+/* ── Segments Grid ── */
+.segmentsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-xl);
+  margin-top: var(--space-2xl);
+}
+
+.segmentCard {
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.segmentNumber {
+  font-size: var(--text-3xl);
+  font-weight: 800;
+  color: var(--color-primary-700);
+  line-height: 1;
+}
+
+.segmentTitle {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.segmentDate {
+  font-size: var(--text-sm);
+  color: var(--color-gold-500);
+  font-weight: 600;
+}
+
+.segmentDesc {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  flex: 1;
+}
+
+.segmentCard .btn {
+  margin-top: var(--space-sm);
+  align-self: flex-start;
+}
+
+/* ── About Section ── */
+.aboutSection {
+  background: var(--color-bg-elevated);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.aboutGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4xl);
+  align-items: start;
+}
+
+.aboutContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.aboutText {
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+  line-height: 1.8;
+}
+
+.aboutStats {
+  display: flex;
+  gap: var(--space-2xl);
+  margin: var(--space-md) 0;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.statValue {
+  font-size: var(--text-3xl);
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--color-gold-500), var(--color-gold-300));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.statLabel {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.aboutVisual {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+.missionCard,
+.visionCard {
+  padding: var(--space-xl);
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.missionCard h3,
+.visionCard h3 {
+  font-size: var(--text-lg);
+  color: var(--color-gold-500);
+  margin-bottom: var(--space-sm);
+}
+
+.missionCard p,
+.visionCard p {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+/* ── Past Events Grid ── */
+.pastGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--space-xl);
+  margin-top: var(--space-2xl);
+}
+
+.pastCard {
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.pastDate {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--color-gold-500);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.pastTitle {
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.pastDesc {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  flex: 1;
+}
+
+.pastLocation {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  margin-top: var(--space-xs);
+}
+
+/* ── CTA Banner ── */
+.ctaBanner {
+  padding: var(--space-5xl) 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.ctaBanner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(ellipse at 50% 50%, rgba(27, 138, 94, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.ctaInner {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.ctaTitle {
+  font-size: var(--text-4xl);
+  font-weight: 800;
+}
+
+.ctaDesc {
+  font-size: var(--text-lg);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-sm);
+}
+
+/* ── Responsive ── */
 @media (max-width: 768px) {
   .heroTitle {
     font-size: var(--text-4xl);
+  }
+
+  .aboutGrid {
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+  }
+
+  .aboutStats {
+    gap: var(--space-xl);
+  }
+
+  .segmentsGrid,
+  .pastGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .ctaTitle {
+    font-size: var(--text-2xl);
   }
 }
 
@@ -97,5 +360,10 @@
 
   .heroDesc {
     font-size: var(--text-base);
+  }
+
+  .aboutStats {
+    flex-direction: column;
+    gap: var(--space-md);
   }
 }

@@ -1,9 +1,12 @@
 import Link from "next/link";
+import CountdownTimer from "@/components/ui/CountdownTimer";
+import { CURRENT_EVENT, PAST_EVENTS, SOCIETY_INFO } from "@/lib/data";
 import styles from "./page.module.css";
 
 export default function Home() {
   return (
     <>
+      {/* ── Hero Section ── */}
       <section className={styles.hero}>
         <div className={styles.heroContent}>
           <p className={styles.heroLabel}>
@@ -19,11 +22,148 @@ export default function Home() {
             engineering students into integrity-driven leaders.
           </p>
           <div className={styles.heroCta}>
-            <Link href="/events" className="btn btn-gold">
-              Islamic Mahfil 2026 →
+            <Link
+              href={`/events/${CURRENT_EVENT.slug}`}
+              className="btn btn-gold"
+            >
+              {CURRENT_EVENT.title} →
             </Link>
             <Link href="/about" className="btn btn-outline">
               Learn More
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Countdown Section ── */}
+      <section className={`${styles.countdownSection} section-sm`}>
+        <div className="container">
+          <div className={styles.countdownWrapper}>
+            <p className={styles.countdownLabel}>Next Event Starts In</p>
+            <h2 className={styles.countdownEventName}>
+              {CURRENT_EVENT.title}
+            </h2>
+            <CountdownTimer targetDate="2026-07-06T09:00:00+06:00" />
+            <p className={styles.countdownMeta}>
+              📅 {CURRENT_EVENT.date} &nbsp;·&nbsp; 📍 {CURRENT_EVENT.location}
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Segments Preview ── */}
+      <section className="section">
+        <div className="container">
+          <p className="section-label">What&apos;s Happening</p>
+          <h2 className="section-title">Event Segments</h2>
+          <p className="section-subtitle">
+            {CURRENT_EVENT.title} features multiple segments spanning across
+            several days.
+          </p>
+          <div className={styles.segmentsGrid}>
+            {CURRENT_EVENT.segments.map((seg, i) => (
+              <div key={seg.id} className={`glass-card ${styles.segmentCard}`}>
+                <span className={styles.segmentNumber}>
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3 className={styles.segmentTitle}>{seg.title}</h3>
+                <p className={styles.segmentDate}>{seg.date}</p>
+                <p className={styles.segmentDesc}>{seg.description}</p>
+                {seg.registrationUrl && (
+                  <a
+                    href={seg.registrationUrl}
+                    className="btn btn-primary"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Register Now
+                  </a>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── About Preview ── */}
+      <section className={`${styles.aboutSection} section`}>
+        <div className="container">
+          <div className={styles.aboutGrid}>
+            <div className={styles.aboutContent}>
+              <p className="section-label">Who We Are</p>
+              <h2 className="section-title">About CIISS</h2>
+              <div className="gold-line" />
+              <p className={styles.aboutText}>{SOCIETY_INFO.about}</p>
+              <div className={styles.aboutStats}>
+                <div className={styles.stat}>
+                  <span className={styles.statValue}>6+</span>
+                  <span className={styles.statLabel}>Events Organized</span>
+                </div>
+                <div className={styles.stat}>
+                  <span className={styles.statValue}>500+</span>
+                  <span className={styles.statLabel}>Students Reached</span>
+                </div>
+                <div className={styles.stat}>
+                  <span className={styles.statValue}>3+</span>
+                  <span className={styles.statLabel}>Years Active</span>
+                </div>
+              </div>
+              <Link href="/about" className="btn btn-outline">
+                Read Full Story →
+              </Link>
+            </div>
+            <div className={styles.aboutVisual}>
+              <div className={styles.missionCard}>
+                <h3>Our Mission</h3>
+                <p>{SOCIETY_INFO.mission}</p>
+              </div>
+              <div className={styles.visionCard}>
+                <h3>Our Vision</h3>
+                <p>{SOCIETY_INFO.vision}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Past Events ── */}
+      <section className="section">
+        <div className="container">
+          <p className="section-label">Our Journey</p>
+          <h2 className="section-title">Past Events</h2>
+          <p className="section-subtitle">
+            A look back at the milestones of CIISS.
+          </p>
+          <div className={styles.pastGrid}>
+            {PAST_EVENTS.map((event) => (
+              <div key={event.id} className={`glass-card ${styles.pastCard}`}>
+                <span className={styles.pastDate}>{event.date}</span>
+                <h3 className={styles.pastTitle}>{event.title}</h3>
+                <p className={styles.pastDesc}>{event.description}</p>
+                <span className={styles.pastLocation}>
+                  📍 {event.location}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA Banner ── */}
+      <section className={styles.ctaBanner}>
+        <div className="container">
+          <div className={styles.ctaInner}>
+            <h2 className={styles.ctaTitle}>
+              Join Us at {CURRENT_EVENT.title}
+            </h2>
+            <p className={styles.ctaDesc}>
+              Be part of the biggest Islamic gathering on CUET campus.
+            </p>
+            <Link
+              href={`/events/${CURRENT_EVENT.slug}`}
+              className="btn btn-gold"
+            >
+              View Full Event Details →
             </Link>
           </div>
         </div>
