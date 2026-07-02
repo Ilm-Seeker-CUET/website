@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import styles from "./Footer.module.css";
 
 const QUICK_LINKS = [
@@ -16,7 +17,13 @@ export default function Footer() {
           {/* Brand */}
           <div className={styles.footerBrand}>
             <div className={styles.footerLogo}>
-              <span className={styles.footerLogoIcon}>☪</span>
+              <Image
+                src="/logo.jpeg"
+                alt="CIISS Logo"
+                width={44}
+                height={44}
+                className={styles.footerLogoImg}
+              />
               <span className={styles.footerBrandName}>CIISS</span>
             </div>
             <p className={styles.footerDesc}>
