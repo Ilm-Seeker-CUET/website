@@ -68,6 +68,7 @@
 
 .heroBadge {
   display: inline-flex;
+  align-self: flex-start;
   padding: var(--space-xs) var(--space-lg);
   background: linear-gradient(135deg, var(--color-gold-500), var(--color-gold-400));
   color: var(--color-text-on-gold);
@@ -231,6 +232,24 @@
 
 /* ── Responsive ── */
 @media (max-width: 768px) {
+  .heroInner {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .heroText {
+    align-items: center;
+  }
+
+  .heroPoster {
+    justify-self: center;
+    order: -1;
+  }
+
+  .heroPosterImg {
+    width: 250px;
+  }
+
   .heroTitle {
     font-size: var(--text-3xl);
   }
@@ -240,6 +259,7 @@
   }
 
   .heroMeta {
+    justify-content: center;
     gap: var(--space-lg);
   }
 
