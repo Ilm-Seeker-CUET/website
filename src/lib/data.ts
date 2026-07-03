@@ -15,19 +15,38 @@ export const CURRENT_EVENT: CIISSEvent = {
   isFeatured: true,
   segments: [
     {
-      id: "quiz-competition",
-      slug: "quiz-competition",
-      title: "Quiz Competition",
-      date: "Jul 6–8, 2026",
+      id: "quiz-competition-male",
+      slug: "quiz-competition-male",
+      title: "Quiz Competition (Male)",
+      date: "Jul 6–9, 2026",
+      image: "/quiz_male.png",
       description:
-        "A thrilling multi-day battle of intellects designed to test and expand your baseline of Islamic knowledge. Highly engaging platform for CUETians to challenge themselves and peers.",
+        "Represent your hall and compete to become the 'Hall Champion' or the ultimate 'Champion of Champions' in this thrilling Islamic Quiz Competition.",
       details: [
-        "Intra-Hall round: In hall dining",
-        "Inter-Hall round: On live stage",
-        "Topics: Seerah of Prophet (PBUH), Quranic sciences, Islamic history, Fiqh",
-        "Prestigious awards, certificates, and recognition for top performers",
+        "Hall Round (July 6): 60 MCQs in 30 minutes at respective hall dining/study rooms.",
+        "Grand Finale (July 9, 4:30 PM): Hall champions compete on stage at the Central Auditorium, with 5 lifelines/helpers from their hall.",
+        "Syllabus: Introduction to Quran & Hadith, Iman & Aqeedah, Ibadah & Fiqh, Seerah of Prophet & Salafs, Islamic History, Contemporary Muslim World, and basics.",
+        "Eligibility: Regular male students of CUET from batches 21, 22, 23, 24, and 25.",
+        "Deadline: Register by July 5, 2026.",
       ],
-      registrationUrl: "#",
+      registrationUrl: "https://forms.gle/TsNoksCQqNT8Tq9f6",
+    },
+    {
+      id: "quiz-competition-female",
+      slug: "quiz-competition-female",
+      title: "Quiz Competition (Female)",
+      date: "Jul 8, 2026",
+      image: "/quiz_female.png",
+      description:
+        "An excellent opportunity for female students to engage in the pursuit of Islamic knowledge through a dedicated Quiz Competition show.",
+      details: [
+        "Format: 60 MCQs in 30 minutes.",
+        "Venue: To be announced soon.",
+        "Syllabus: Introduction to Quran & Hadith, Iman & Aqeedah, Ibadah & Fiqh, Seerah of Prophet & Salafs, Islamic History, Contemporary Muslim World, and basics.",
+        "Eligibility: Regular female students of CUET from batches 21, 22, 23, 24, and 25.",
+        "Deadline: Register by July 5, 2026.",
+      ],
+      registrationUrl: "https://forms.gle/RfX8GuZpcaCQxx6S9",
     },
     {
       id: "sunnah-presentation",
