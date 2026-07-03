@@ -34,6 +34,7 @@ export const CURRENT_EVENT: CIISSEvent = {
       slug: "sunnah-presentation",
       title: "Sunnah Presentation",
       date: "Jul 8, 2026",
+      image: "/sunnah-presentation.jpg",
       description:
         "Dive into the pristine lifestyle of Prophet Muhammad (PBUH) through an interactive, visual, and thought-provoking exhibition. Connecting historical tradition with modern daily life.",
       details: [

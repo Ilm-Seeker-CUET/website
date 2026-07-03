@@ -91,8 +91,8 @@ export default function Home() {
           </Reveal>
           <div className={styles.segmentsGrid}>
             {CURRENT_EVENT.segments.map((seg, i) => (
-              <Reveal key={seg.id} delay={i * 100}>
-                <div className={`glass-card ${styles.segmentCard}`}>
+              <Reveal key={seg.id} delay={i * 100} style={{ height: "100%" }}>
+                <div className={`glass-card ${styles.segmentCard}`} style={{ height: "100%" }}>
                   <span className={styles.segmentNumber}>
                     {String(i + 1).padStart(2, "0")}
                   </span>
@@ -166,8 +166,8 @@ export default function Home() {
           </Reveal>
           <div className={styles.pastGrid}>
             {PAST_EVENTS.map((event, i) => (
-              <Reveal key={event.id} delay={i * 100}>
-                <div className={`glass-card ${styles.pastCard}`}>
+              <Reveal key={event.id} delay={i * 100} style={{ height: "100%" }}>
+                <div className={`glass-card ${styles.pastCard}`} style={{ height: "100%" }}>
                   <span className={styles.pastDate}>{event.date}</span>
                   <h3 className={styles.pastTitle}>{event.title}</h3>
                   <p className={styles.pastDesc}>{event.description}</p>
