@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { CURRENT_EVENT } from "@/lib/data";
 import styles from "./Navbar.module.css";
 
 const NAV_ITEMS = [
@@ -13,15 +14,37 @@ const NAV_ITEMS = [
   { label: "Contact", href: "/contact" },
 ];
 
+const EVENT_DATE = "2026-07-06T09:00:00+06:00";
+
+function getMiniCountdown(): string {
+  const diff = new Date(EVENT_DATE).getTime() - Date.now();
+  if (diff <= 0) return "Live Now";
+  const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  if (d > 0) return `${d}d ${h}h`;
+  const m = Math.floor((diff / (1000 * 60)) % 60);
+  return `${h}h ${m}m`;
+}
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [countdown, setCountdown] = useState("");
   const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Mini countdown tick
+  useEffect(() => {
+    setCountdown(getMiniCountdown());
+    const timer = setInterval(() => {
+      setCountdown(getMiniCountdown());
+    }, 60000); // update every minute
+    return () => clearInterval(timer);
   }, []);
 
   // Close mobile menu on route change
@@ -68,8 +91,14 @@ export default function Navbar() {
               {item.label}
             </Link>
           ))}
-          <Link href="/events" className={`btn btn-gold ${styles.navCta}`}>
-            Upcoming Event
+          <Link
+            href={`/events/${CURRENT_EVENT.slug}`}
+            className={`${styles.navCta}`}
+          >
+            <span className={styles.ctaLabel}>Mahfil 2026</span>
+            {countdown && (
+              <span className={styles.ctaCountdown}>{countdown}</span>
+            )}
           </Link>
         </div>
 
@@ -98,11 +127,14 @@ export default function Navbar() {
           </Link>
         ))}
         <Link
-          href="/events"
-          className="btn btn-gold"
+          href={`/events/${CURRENT_EVENT.slug}`}
+          className={`${styles.navCta}`}
           onClick={() => setMenuOpen(false)}
         >
-          Upcoming Event
+          <span className={styles.ctaLabel}>Mahfil 2026</span>
+          {countdown && (
+            <span className={styles.ctaCountdown}>{countdown}</span>
+          )}
         </Link>
       </div>
     </nav>

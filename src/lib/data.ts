@@ -2,9 +2,9 @@ import { CIISSEvent, PastEvent, ContactInfo } from "./types";
 
 // ── Current / Upcoming Event ──────────────────────────────────────
 export const CURRENT_EVENT: CIISSEvent = {
-  id: "islamic-mahfil-2026",
-  slug: "islamic-mahfil-2026",
-  title: "Islamic Mahfil 2026",
+  id: "islamic-mahfil-week-2026",
+  slug: "islamic-mahfil-week-2026",
+  title: "Islamic Mahfil Week 2026",
   tagline: "A Grand Gathering of Faith, Knowledge & Brotherhood",
   date: "July 6–9, 2026",
   location: "CUET Campus",

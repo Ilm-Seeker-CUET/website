@@ -26,9 +26,10 @@ function getTimeLeft(target: string): TimeLeft {
 }
 
 export default function CountdownTimer({ targetDate }: CountdownTimerProps) {
-  const [timeLeft, setTimeLeft] = useState<TimeLeft>(getTimeLeft(targetDate));
+  const [timeLeft, setTimeLeft] = useState<TimeLeft | null>(null);
 
   useEffect(() => {
+    setTimeLeft(getTimeLeft(targetDate));
     const timer = setInterval(() => {
       setTimeLeft(getTimeLeft(targetDate));
     }, 1000);
@@ -36,10 +37,10 @@ export default function CountdownTimer({ targetDate }: CountdownTimerProps) {
   }, [targetDate]);
 
   const units = [
-    { label: "Days", value: timeLeft.days },
-    { label: "Hours", value: timeLeft.hours },
-    { label: "Minutes", value: timeLeft.minutes },
-    { label: "Seconds", value: timeLeft.seconds },
+    { label: "Days", value: timeLeft?.days ?? 0 },
+    { label: "Hours", value: timeLeft?.hours ?? 0 },
+    { label: "Minutes", value: timeLeft?.minutes ?? 0 },
+    { label: "Seconds", value: timeLeft?.seconds ?? 0 },
   ];
 
   return (
@@ -47,7 +48,7 @@ export default function CountdownTimer({ targetDate }: CountdownTimerProps) {
       {units.map((unit) => (
         <div key={unit.label} className={styles.unit}>
           <span className={styles.value}>
-            {String(unit.value).padStart(2, "0")}
+            {timeLeft ? String(unit.value).padStart(2, "0") : "--"}
           </span>
           <span className={styles.label}>{unit.label}</span>
         </div>
