@@ -27,11 +27,23 @@
   font-size: var(--text-lg);
 }
 
-.footerLogoImg {
+.logoWrapper {
   width: 44px;
   height: 44px;
   border-radius: var(--radius-md);
-  object-fit: contain;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+}
+
+.footerLogoImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.3);
+  transform-origin: center;
 }
 
 .footerBrandName {

@@ -65,13 +65,15 @@ export default function Navbar() {
       <div className={styles.navbarInner}>
         {/* Logo */}
         <Link href="/" className={styles.logo}>
-          <Image
-            src="/logo.jpeg"
-            alt="CIISS Logo"
-            width={40}
-            height={40}
-            className={styles.logoImg}
-          />
+          <div className={styles.logoWrapper}>
+            <Image
+              src="/logo.jpeg"
+              alt="CIISS Logo"
+              width={40}
+              height={40}
+              className={styles.logoImg}
+            />
+          </div>
           <div>
             <span className={styles.logoTextMain}>CIISS</span>
             <span className={styles.logoTextAccent}>Ilm Seeker Society</span>

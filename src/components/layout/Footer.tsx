@@ -17,13 +17,15 @@ export default function Footer() {
           {/* Brand */}
           <div className={styles.footerBrand}>
             <div className={styles.footerLogo}>
-              <Image
-                src="/logo.jpeg"
-                alt="CIISS Logo"
-                width={44}
-                height={44}
-                className={styles.footerLogoImg}
-              />
+              <div className={styles.logoWrapper}>
+                <Image
+                  src="/logo.jpeg"
+                  alt="CIISS Logo"
+                  width={44}
+                  height={44}
+                  className={styles.footerLogoImg}
+                />
+              </div>
               <span className={styles.footerBrandName}>CIISS</span>
             </div>
             <p className={styles.footerDesc}>
