@@ -68,15 +68,15 @@ export default function Footer() {
             <h4>Contact</h4>
             <div className={styles.contactItem}>
               <span className={styles.contactIcon}>📍</span>
-              <span>Kaptai Road, Chittagong, Bangladesh, 4349</span>
+              <span>Kaptai Road, Pahartoli, Raozan, Chittagong, Bangladesh, 4349</span>
             </div>
             <div className={styles.contactItem}>
               <span className={styles.contactIcon}>📞</span>
               <span>01881-277639</span>
             </div>
             <div className={styles.contactItem}>
-              <span className={styles.contactIcon}>💬</span>
-              <span>Facebook Messenger</span>
+              <span className={styles.contactIcon}>✉️</span>
+              <span>ciiss.cuet@gmail.com</span>
             </div>
           </div>
         </div>
@@ -89,7 +89,7 @@ export default function Footer() {
           </p>
           <div className={styles.socialLinks}>
             <a
-              href="https://www.facebook.com"
+              href="https://web.facebook.com/CUETIlmSeeker"
               target="_blank"
               rel="noopener noreferrer"
               className={styles.socialLink}
@@ -98,11 +98,9 @@ export default function Footer() {
               f
             </a>
             <a
-              href="https://www.messenger.com"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="mailto:ciiss.cuet@gmail.com"
               className={styles.socialLink}
-              aria-label="Messenger"
+              aria-label="Email"
             >
               ✉
             </a>

@@ -131,7 +131,7 @@ export const PAST_EVENTS: PastEvent[] = [
     id: "islamic-week-2025",
     title: "Islamic Week 2025",
     date: "Feb 20, 2025",
-    location: "CUET Venue",
+    location: "CUET Campus",
     description:
       "A week-long series of seminars, awareness campaigns, and youth lectures.",
   },

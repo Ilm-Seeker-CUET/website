@@ -46,16 +46,14 @@ export default function ContactPage() {
               </Reveal>
 
               <Reveal className={`glass-card ${styles.contactCard}`} delay={300}>
-                <span className={styles.cardIcon}>💬</span>
-                <h3 className={styles.cardTitle}>Message Us</h3>
-                <p className={styles.cardText}>Facebook Messenger</p>
+                <span className={styles.cardIcon}>✉️</span>
+                <h3 className={styles.cardTitle}>Email Us</h3>
+                <p className={styles.cardText}>ciiss.cuet@gmail.com</p>
                 <a
-                  href={CONTACT_INFO.messenger}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="mailto:ciiss.cuet@gmail.com"
                   className="btn btn-primary"
                 >
-                  Open Messenger →
+                  Send an Email →
                 </a>
               </Reveal>
 
