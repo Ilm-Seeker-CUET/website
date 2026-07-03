@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import { CURRENT_EVENT } from "@/lib/data";
 import styles from "./page.module.css";
 
@@ -35,27 +36,53 @@ export default async function EventDetailPage({
     <>
       {/* ── Event Hero ── */}
       <section className={styles.eventHero}>
+        {/* Background poster overlay */}
+        {event.image && (
+          <div className={styles.heroBg}>
+            <Image
+              src={event.image}
+              alt=""
+              fill
+              className={styles.heroBgImage}
+              priority
+            />
+          </div>
+        )}
         <div className="container">
           <div className={styles.heroInner}>
-            <span className={styles.heroBadge}>
-              {event.isUpcoming ? "Upcoming Event" : "Past Event"}
-            </span>
-            <h1 className={styles.heroTitle}>{event.title}</h1>
-            <p className={styles.heroTagline}>{event.tagline}</p>
-            <div className={styles.heroMeta}>
-              <div className={styles.metaItem}>
-                <span className={styles.metaIcon}>📅</span>
-                <span>{event.date}</span>
-              </div>
-              <div className={styles.metaItem}>
-                <span className={styles.metaIcon}>📍</span>
-                <span>{event.location}</span>
-              </div>
-              <div className={styles.metaItem}>
-                <span className={styles.metaIcon}>🎯</span>
-                <span>{event.segments.length} Segments</span>
+            <div className={styles.heroText}>
+              <span className={styles.heroBadge}>
+                {event.isUpcoming ? "Upcoming Event" : "Past Event"}
+              </span>
+              <h1 className={styles.heroTitle}>{event.title}</h1>
+              <p className={styles.heroTagline}>{event.tagline}</p>
+              <div className={styles.heroMeta}>
+                <div className={styles.metaItem}>
+                  <span className={styles.metaIcon}>📅</span>
+                  <span>{event.date}</span>
+                </div>
+                <div className={styles.metaItem}>
+                  <span className={styles.metaIcon}>📍</span>
+                  <span>{event.location}</span>
+                </div>
+                <div className={styles.metaItem}>
+                  <span className={styles.metaIcon}>🎯</span>
+                  <span>{event.segments.length} Segments</span>
+                </div>
               </div>
             </div>
+            {event.image && (
+              <div className={styles.heroPoster}>
+                <Image
+                  src={event.image}
+                  alt={event.title}
+                  width={350}
+                  height={350}
+                  className={styles.heroPosterImg}
+                  priority
+                />
+              </div>
+            )}
           </div>
         </div>
       </section>

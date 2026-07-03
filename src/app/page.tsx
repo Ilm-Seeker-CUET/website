@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import CountdownTimer from "@/components/ui/CountdownTimer";
 import { CURRENT_EVENT, PAST_EVENTS, SOCIETY_INFO } from "@/lib/data";
 import styles from "./page.module.css";
@@ -35,18 +36,43 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Countdown Section ── */}
-      <section className={`${styles.countdownSection} section-sm`}>
+      {/* ── Featured Event Banner ── */}
+      <section className={styles.featuredBanner}>
         <div className="container">
-          <div className={styles.countdownWrapper}>
-            <p className={styles.countdownLabel}>Next Event Starts In</p>
-            <h2 className={styles.countdownEventName}>
-              {CURRENT_EVENT.title}
-            </h2>
-            <CountdownTimer targetDate="2026-07-06T09:00:00+06:00" />
-            <p className={styles.countdownMeta}>
-              📅 {CURRENT_EVENT.date} &nbsp;·&nbsp; 📍 {CURRENT_EVENT.location}
-            </p>
+          <div className={styles.featuredInner}>
+            {/* Poster Side */}
+            {CURRENT_EVENT.image && (
+              <div className={styles.featuredPoster}>
+                <Image
+                  src={CURRENT_EVENT.image}
+                  alt={CURRENT_EVENT.title}
+                  width={480}
+                  height={480}
+                  className={styles.posterImage}
+                  priority
+                />
+              </div>
+            )}
+            {/* Info Side */}
+            <div className={styles.featuredInfo}>
+              <span className={styles.featuredBadge}>Featured Event</span>
+              <h2 className={styles.featuredTitle}>{CURRENT_EVENT.title}</h2>
+              <p className={styles.featuredTagline}>{CURRENT_EVENT.tagline}</p>
+              <CountdownTimer targetDate="2026-07-06T09:00:00+06:00" />
+              <div className={styles.featuredMeta}>
+                <span>📅 {CURRENT_EVENT.date}</span>
+                <span>📍 {CURRENT_EVENT.location}</span>
+                <span>🎯 {CURRENT_EVENT.segments.length} Segments</span>
+              </div>
+              <div className={styles.featuredActions}>
+                <Link
+                  href={`/events/${CURRENT_EVENT.slug}`}
+                  className="btn btn-gold"
+                >
+                  View Full Details →
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>

@@ -4,6 +4,7 @@ export interface Segment {
   date: string;
   description: string;
   details: string[];
+  image?: string;
   registrationUrl?: string;
 }
 
@@ -15,7 +16,9 @@ export interface CIISSEvent {
   date: string;
   location: string;
   description: string;
+  image?: string;
   isUpcoming: boolean;
+  isFeatured?: boolean;
   segments: Segment[];
 }
 
@@ -25,6 +28,7 @@ export interface PastEvent {
   date: string;
   location: string;
   description: string;
+  image?: string;
 }
 
 export interface ContactInfo {

@@ -10,7 +10,9 @@ export const CURRENT_EVENT: CIISSEvent = {
   location: "CUET Campus",
   description:
     "The flagship annual event of CUET Islamic Ilm Seeker Society — a multi-day series featuring quiz competitions, Sunnah presentations, an Islamic book fair, and culminating in the Grand Mahfil with renowned Islamic scholar Professor Mokhter Ahmad.",
+  image: "/Islamic Mahfil.png",
   isUpcoming: true,
+  isFeatured: true,
   segments: [
     {
       id: "quiz-competition",

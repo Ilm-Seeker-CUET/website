@@ -1,8 +1,8 @@
 /* ── Event Hero ── */
 .eventHero {
   padding: var(--space-5xl) 0 var(--space-3xl);
-  text-align: center;
   position: relative;
+  overflow: hidden;
 }
 
 .eventHero::before {
@@ -16,15 +16,54 @@
     radial-gradient(ellipse at 40% 20%, rgba(27, 138, 94, 0.12) 0%, transparent 50%),
     radial-gradient(ellipse at 60% 80%, rgba(212, 175, 55, 0.08) 0%, transparent 50%);
   pointer-events: none;
+  z-index: 1;
+}
+
+/* Background poster — blurred + dark overlay */
+.heroBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+}
+
+.heroBgImage {
+  object-fit: cover;
+  opacity: 0.08;
+  filter: blur(20px);
 }
 
 .heroInner {
   position: relative;
-  z-index: 1;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--space-3xl);
+  align-items: center;
+}
+
+.heroText {
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: var(--space-md);
+}
+
+.heroPoster {
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow:
+    0 8px 40px rgba(0, 0, 0, 0.5),
+    0 0 30px rgba(27, 138, 94, 0.1);
+}
+
+.heroPosterImg {
+  display: block;
+  width: 320px;
+  height: auto;
+  border-radius: var(--radius-xl);
+  object-fit: cover;
 }
 
 .heroBadge {

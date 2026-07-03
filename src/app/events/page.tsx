@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { CURRENT_EVENT, PAST_EVENTS } from "@/lib/data";
 import styles from "./page.module.css";
 
@@ -28,6 +29,17 @@ export default function EventsPage() {
           <p className="section-label">Featured</p>
           <h2 className="section-title">Upcoming Event</h2>
           <div className={styles.featuredCard}>
+            {CURRENT_EVENT.image && (
+              <div className={styles.featuredPoster}>
+                <Image
+                  src={CURRENT_EVENT.image}
+                  alt={CURRENT_EVENT.title}
+                  width={400}
+                  height={400}
+                  className={styles.featuredPosterImg}
+                />
+              </div>
+            )}
             <div className={styles.featuredContent}>
               <span className={styles.featuredBadge}>Upcoming</span>
               <h3 className={styles.featuredTitle}>{CURRENT_EVENT.title}</h3>
