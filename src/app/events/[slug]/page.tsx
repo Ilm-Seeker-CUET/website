@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
+import Reveal from "@/components/ui/Reveal";
 import { CURRENT_EVENT } from "@/lib/data";
 import styles from "./page.module.css";
 
@@ -50,7 +51,7 @@ export default async function EventDetailPage({
         )}
         <div className="container">
           <div className={styles.heroInner}>
-            <div className={styles.heroText}>
+            <Reveal className={styles.heroText} direction="left">
               <span className={styles.heroBadge}>
                 {event.isUpcoming ? "Upcoming Event" : "Past Event"}
               </span>
@@ -70,9 +71,9 @@ export default async function EventDetailPage({
                   <span>{event.segments.length} Segments</span>
                 </div>
               </div>
-            </div>
+            </Reveal>
             {event.image && (
-              <div className={styles.heroPoster}>
+              <Reveal className={styles.heroPoster} direction="right">
                 <Image
                   src={event.image}
                   alt={event.title}
@@ -81,7 +82,7 @@ export default async function EventDetailPage({
                   className={styles.heroPosterImg}
                   priority
                 />
-              </div>
+              </Reveal>
             )}
           </div>
         </div>
@@ -90,10 +91,10 @@ export default async function EventDetailPage({
       {/* ── Event Description ── */}
       <section className="section-sm">
         <div className="container">
-          <div className={styles.descriptionBlock}>
+          <Reveal className={styles.descriptionBlock} direction="up">
             <div className="gold-line" />
             <p className={styles.descriptionText}>{event.description}</p>
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -108,43 +109,45 @@ export default async function EventDetailPage({
 
           <div className={styles.segmentsList}>
             {event.segments.map((seg, i) => (
-              <div
+              <Reveal
                 key={seg.id}
                 className={styles.segmentBlock}
-                id={seg.id}
+                delay={i * 100}
               >
-                <div className={styles.segmentHeader}>
-                  <span className={styles.segmentNum}>
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <div className={styles.segmentHeaderText}>
-                    <h3 className={styles.segmentTitle}>{seg.title}</h3>
-                    <span className={styles.segmentDate}>{seg.date}</span>
+                <div id={seg.id} style={{ scrollMarginTop: "100px" }}>
+                  <div className={styles.segmentHeader}>
+                    <span className={styles.segmentNum}>
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <div className={styles.segmentHeaderText}>
+                      <h3 className={styles.segmentTitle}>{seg.title}</h3>
+                      <span className={styles.segmentDate}>{seg.date}</span>
+                    </div>
                   </div>
+
+                  <p className={styles.segmentDescription}>{seg.description}</p>
+
+                  <ul className={styles.segmentDetails}>
+                    {seg.details.map((detail, j) => (
+                      <li key={j} className={styles.detailItem}>
+                        <span className={styles.detailBullet}>✦</span>
+                        <span>{detail}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  {seg.registrationUrl && (
+                    <a
+                      href={seg.registrationUrl}
+                      className="btn btn-gold"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Register for {seg.title} →
+                    </a>
+                  )}
                 </div>
-
-                <p className={styles.segmentDescription}>{seg.description}</p>
-
-                <ul className={styles.segmentDetails}>
-                  {seg.details.map((detail, j) => (
-                    <li key={j} className={styles.detailItem}>
-                      <span className={styles.detailBullet}>✦</span>
-                      <span>{detail}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                {seg.registrationUrl && (
-                  <a
-                    href={seg.registrationUrl}
-                    className="btn btn-gold"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Register for {seg.title} →
-                  </a>
-                )}
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>

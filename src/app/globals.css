@@ -289,6 +289,23 @@ h1, h2, h3, h4, h5, h6 {
 .delay-4 { animation-delay: 0.4s; }
 .delay-5 { animation-delay: 0.5s; }
 
+/* --- Scroll Reveal Animations --- */
+.reveal {
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.reveal-up { transform: translateY(40px); }
+.reveal-down { transform: translateY(-40px); }
+.reveal-left { transform: translateX(40px); }
+.reveal-right { transform: translateX(-40px); }
+.reveal-fade { transform: scale(0.95); }
+
+.revealed {
+  opacity: 1;
+  transform: translate(0, 0) scale(1);
+}
+
 /* --- Gold Accent Line --- */
 .gold-line {
   width: 60px;

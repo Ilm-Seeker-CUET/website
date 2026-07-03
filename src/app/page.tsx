@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import CountdownTimer from "@/components/ui/CountdownTimer";
+import Reveal from "@/components/ui/Reveal";
 import { CURRENT_EVENT, PAST_EVENTS, SOCIETY_INFO } from "@/lib/data";
 import styles from "./page.module.css";
 
@@ -9,7 +10,7 @@ export default function Home() {
     <>
       {/* ── Hero Section ── */}
       <section className={styles.hero}>
-        <div className={styles.heroContent}>
+        <Reveal direction="up" className={styles.heroContent}>
           <p className={styles.heroLabel}>
             بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ
           </p>
@@ -33,12 +34,12 @@ export default function Home() {
               Learn More
             </Link>
           </div>
-        </div>
+        </Reveal>
       </section>
 
       {/* ── Featured Event Banner ── */}
       <section className={styles.featuredBanner}>
-        <div className="container">
+        <Reveal className="container">
           <div className={styles.featuredInner}>
             {/* Poster Side */}
             {CURRENT_EVENT.image && (
@@ -74,38 +75,42 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </div>
+        </Reveal>
       </section>
 
       {/* ── Segments Preview ── */}
       <section className="section">
         <div className="container">
-          <p className="section-label">What&apos;s Happening</p>
-          <h2 className="section-title">Event Segments</h2>
-          <p className="section-subtitle">
-            {CURRENT_EVENT.title} features multiple segments spanning across
-            several days.
-          </p>
+          <Reveal>
+            <p className="section-label">What&apos;s Happening</p>
+            <h2 className="section-title">Event Segments</h2>
+            <p className="section-subtitle">
+              {CURRENT_EVENT.title} features multiple segments spanning across
+              several days.
+            </p>
+          </Reveal>
           <div className={styles.segmentsGrid}>
             {CURRENT_EVENT.segments.map((seg, i) => (
-              <div key={seg.id} className={`glass-card ${styles.segmentCard}`}>
-                <span className={styles.segmentNumber}>
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3 className={styles.segmentTitle}>{seg.title}</h3>
-                <p className={styles.segmentDate}>{seg.date}</p>
-                <p className={styles.segmentDesc}>{seg.description}</p>
-                {seg.registrationUrl && (
-                  <a
-                    href={seg.registrationUrl}
-                    className="btn btn-primary"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Register Now
-                  </a>
-                )}
-              </div>
+              <Reveal key={seg.id} delay={i * 100}>
+                <div className={`glass-card ${styles.segmentCard}`}>
+                  <span className={styles.segmentNumber}>
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <h3 className={styles.segmentTitle}>{seg.title}</h3>
+                  <p className={styles.segmentDate}>{seg.date}</p>
+                  <p className={styles.segmentDesc}>{seg.description}</p>
+                  {seg.registrationUrl && (
+                    <a
+                      href={seg.registrationUrl}
+                      className="btn btn-primary"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Register Now
+                    </a>
+                  )}
+                </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -115,7 +120,7 @@ export default function Home() {
       <section className={`${styles.aboutSection} section`}>
         <div className="container">
           <div className={styles.aboutGrid}>
-            <div className={styles.aboutContent}>
+            <Reveal className={styles.aboutContent} direction="left">
               <p className="section-label">Who We Are</p>
               <h2 className="section-title">About CIISS</h2>
               <div className="gold-line" />
@@ -137,8 +142,8 @@ export default function Home() {
               <Link href="/about" className="btn btn-outline">
                 Read Full Story →
               </Link>
-            </div>
-            <div className={styles.aboutVisual}>
+            </Reveal>
+            <Reveal className={styles.aboutVisual} direction="right">
               <div className={styles.missionCard}>
                 <h3>Our Mission</h3>
                 <p>{SOCIETY_INFO.mission}</p>
@@ -147,7 +152,7 @@ export default function Home() {
                 <h3>Our Vision</h3>
                 <p>{SOCIETY_INFO.vision}</p>
               </div>
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -155,21 +160,25 @@ export default function Home() {
       {/* ── Past Events ── */}
       <section className="section">
         <div className="container">
-          <p className="section-label">Our Journey</p>
-          <h2 className="section-title">Past Events</h2>
-          <p className="section-subtitle">
-            A look back at the milestones of CIISS.
-          </p>
+          <Reveal>
+            <p className="section-label">Our Journey</p>
+            <h2 className="section-title">Past Events</h2>
+            <p className="section-subtitle">
+              A look back at the milestones of CIISS.
+            </p>
+          </Reveal>
           <div className={styles.pastGrid}>
-            {PAST_EVENTS.map((event) => (
-              <div key={event.id} className={`glass-card ${styles.pastCard}`}>
-                <span className={styles.pastDate}>{event.date}</span>
-                <h3 className={styles.pastTitle}>{event.title}</h3>
-                <p className={styles.pastDesc}>{event.description}</p>
-                <span className={styles.pastLocation}>
-                  📍 {event.location}
-                </span>
-              </div>
+            {PAST_EVENTS.map((event, i) => (
+              <Reveal key={event.id} delay={i * 100}>
+                <div className={`glass-card ${styles.pastCard}`}>
+                  <span className={styles.pastDate}>{event.date}</span>
+                  <h3 className={styles.pastTitle}>{event.title}</h3>
+                  <p className={styles.pastDesc}>{event.description}</p>
+                  <span className={styles.pastLocation}>
+                    📍 {event.location}
+                  </span>
+                </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -178,7 +187,7 @@ export default function Home() {
       {/* ── CTA Banner ── */}
       <section className={styles.ctaBanner}>
         <div className="container">
-          <div className={styles.ctaInner}>
+          <Reveal className={styles.ctaInner} direction="up">
             <h2 className={styles.ctaTitle}>
               Join Us at {CURRENT_EVENT.title}
             </h2>
@@ -191,7 +200,7 @@ export default function Home() {
             >
               View Full Event Details →
             </Link>
-          </div>
+          </Reveal>
         </div>
       </section>
     </>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import Reveal from "@/components/ui/Reveal";
 import { CURRENT_EVENT, PAST_EVENTS } from "@/lib/data";
 import styles from "./page.module.css";
 
@@ -14,18 +15,18 @@ export default function EventsPage() {
     <>
       {/* ── Page Header ── */}
       <section className={styles.pageHeader}>
-        <div className="container">
+        <Reveal className="container" direction="up">
           <p className="section-label">Our Events</p>
           <h1 className="section-title">Events &amp; Programs</h1>
           <p className="section-subtitle">
             From campus-wide campaigns to grand spiritual gatherings — explore everything CIISS organizes.
           </p>
-        </div>
+        </Reveal>
       </section>
 
       {/* ── Upcoming / Featured Event ── */}
       <section className="section-sm">
-        <div className="container">
+        <Reveal className="container">
           <p className="section-label">Featured</p>
           <h2 className="section-title">Upcoming Event</h2>
           <div className={styles.featuredCard}>
@@ -74,24 +75,27 @@ export default function EventsPage() {
               ))}
             </div>
           </div>
-        </div>
+        </Reveal>
       </section>
 
       {/* ── Past Events ── */}
       <section className={`${styles.pastSection} section`}>
         <div className="container">
-          <p className="section-label">Our Journey</p>
-          <h2 className="section-title">Past Events</h2>
-          <p className="section-subtitle">
-            A look back at the milestones that shaped CIISS.
-          </p>
+          <Reveal>
+            <p className="section-label">Our Journey</p>
+            <h2 className="section-title">Past Events</h2>
+            <p className="section-subtitle">
+              A look back at the milestones that shaped CIISS.
+            </p>
+          </Reveal>
 
           <div className={styles.timeline}>
             {PAST_EVENTS.slice()
               .reverse()
               .map((event, i) => (
-                <div
+                <Reveal
                   key={event.id}
+                  direction={i % 2 === 0 ? "left" : "right"}
                   className={`${styles.timelineItem} ${
                     i % 2 === 0 ? styles.timelineLeft : styles.timelineRight
                   }`}
@@ -105,7 +109,7 @@ export default function EventsPage() {
                       📍 {event.location}
                     </span>
                   </div>
-                </div>
+                </Reveal>
               ))}
           </div>
         </div>

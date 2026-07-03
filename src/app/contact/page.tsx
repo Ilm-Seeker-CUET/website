@@ -1,4 +1,5 @@
 import { CONTACT_INFO } from "@/lib/data";
+import Reveal from "@/components/ui/Reveal";
 import styles from "./page.module.css";
 
 export const metadata = {
@@ -12,14 +13,14 @@ export default function ContactPage() {
     <>
       {/* ── Page Header ── */}
       <section className={styles.contactHero}>
-        <div className="container">
+        <Reveal className="container" direction="up">
           <p className="section-label">Get In Touch</p>
           <h1 className="section-title">Contact Us</h1>
           <p className="section-subtitle" style={{ margin: "0 auto" }}>
             Have questions about our events or want to get involved? Reach out
             — we&apos;d love to hear from you.
           </p>
-        </div>
+        </Reveal>
       </section>
 
       {/* ── Contact Grid ── */}
@@ -28,23 +29,23 @@ export default function ContactPage() {
           <div className={styles.contactGrid}>
             {/* Contact Cards */}
             <div className={styles.cardsColumn}>
-              <div className={`glass-card ${styles.contactCard}`}>
+              <Reveal className={`glass-card ${styles.contactCard}`} delay={100}>
                 <span className={styles.cardIcon}>📍</span>
                 <h3 className={styles.cardTitle}>Visit Us</h3>
                 <p className={styles.cardText}>{CONTACT_INFO.address}</p>
                 <p className={styles.cardSubtext}>
                   Chittagong University of Engineering & Technology
                 </p>
-              </div>
+              </Reveal>
 
-              <div className={`glass-card ${styles.contactCard}`}>
+              <Reveal className={`glass-card ${styles.contactCard}`} delay={200}>
                 <span className={styles.cardIcon}>📞</span>
                 <h3 className={styles.cardTitle}>Call Us</h3>
                 <p className={styles.cardText}>{CONTACT_INFO.phone}</p>
                 <p className={styles.cardSubtext}>Primary Hotline</p>
-              </div>
+              </Reveal>
 
-              <div className={`glass-card ${styles.contactCard}`}>
+              <Reveal className={`glass-card ${styles.contactCard}`} delay={300}>
                 <span className={styles.cardIcon}>💬</span>
                 <h3 className={styles.cardTitle}>Message Us</h3>
                 <p className={styles.cardText}>Facebook Messenger</p>
@@ -56,9 +57,9 @@ export default function ContactPage() {
                 >
                   Open Messenger →
                 </a>
-              </div>
+              </Reveal>
 
-              <div className={`glass-card ${styles.contactCard}`}>
+              <Reveal className={`glass-card ${styles.contactCard}`} delay={400}>
                 <span className={styles.cardIcon}>📘</span>
                 <h3 className={styles.cardTitle}>Follow Us</h3>
                 <p className={styles.cardText}>Facebook Page</p>
@@ -70,11 +71,11 @@ export default function ContactPage() {
                 >
                   Visit Facebook Page →
                 </a>
-              </div>
+              </Reveal>
             </div>
 
             {/* Info Panel */}
-            <div className={styles.infoPanel}>
+            <Reveal className={styles.infoPanel} direction="left">
               <div className={styles.infoPanelInner}>
                 <h2 className={styles.infoPanelTitle}>
                   CUET Islamic Ilm Seeker Society
@@ -101,10 +102,15 @@ export default function ContactPage() {
                     </span>
                   </div>
                   <div className={styles.infoItem}>
-                    <span className={styles.infoLabel}>Communication</span>
-                    <span className={styles.infoValue}>
-                      Facebook Messenger
-                    </span>
+                    <span className={styles.infoLabel}>Social</span>
+                    <a
+                      href={CONTACT_INFO.facebook}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.infoLink}
+                    >
+                      Facebook Page ↗
+                    </a>
                   </div>
                 </div>
 
@@ -121,7 +127,7 @@ export default function ContactPage() {
                   />
                 </div>
               </div>
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>

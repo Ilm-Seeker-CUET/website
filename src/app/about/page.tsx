@@ -1,4 +1,5 @@
 import { SOCIETY_INFO, PAST_EVENTS } from "@/lib/data";
+import Reveal from "@/components/ui/Reveal";
 import styles from "./page.module.css";
 
 export const metadata = {
@@ -11,32 +12,32 @@ export default function AboutPage() {
     <>
       {/* ── Page Hero ── */}
       <section className={styles.aboutHero}>
-        <div className="container">
+        <Reveal className="container" direction="up">
           <p className="section-label">About Us</p>
           <h1 className={styles.heroTitle}>
             CUET Islamic{" "}
             <span className={styles.heroAccent}>Ilm Seeker</span> Society
           </h1>
           <p className={styles.heroSubtitle}>{SOCIETY_INFO.about}</p>
-        </div>
+        </Reveal>
       </section>
 
       {/* ── Mission & Vision ── */}
       <section className={`${styles.mvSection} section`}>
         <div className="container">
           <div className={styles.mvGrid}>
-            <div className={styles.mvCard}>
+            <Reveal className={styles.mvCard} direction="left">
               <div className={styles.mvIcon}>🎯</div>
               <h2 className={styles.mvTitle}>Our Mission</h2>
               <div className="gold-line" />
               <p className={styles.mvText}>{SOCIETY_INFO.mission}</p>
-            </div>
-            <div className={styles.mvCard}>
+            </Reveal>
+            <Reveal className={styles.mvCard} direction="right">
               <div className={styles.mvIcon}>🌟</div>
               <h2 className={styles.mvTitle}>Our Vision</h2>
               <div className="gold-line" />
               <p className={styles.mvText}>{SOCIETY_INFO.vision}</p>
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -47,6 +48,7 @@ export default function AboutPage() {
           <p className="section-label">What We Do</p>
           <h2 className="section-title">Our Activities</h2>
           <div className={styles.activitiesGrid}>
+            {/* ... Activities ... */}
             {[
               {
                 icon: "📖",
@@ -78,15 +80,16 @@ export default function AboutPage() {
                 title: "Quran Campaigns",
                 desc: "Campus-wide Quran distribution drives and related competitions to connect students with the Book of Allah.",
               },
-            ].map((activity) => (
-              <div
+            ].map((activity, i) => (
+              <Reveal
                 key={activity.title}
+                delay={i * 100}
                 className={`glass-card ${styles.activityCard}`}
               >
                 <span className={styles.activityIcon}>{activity.icon}</span>
                 <h3 className={styles.activityTitle}>{activity.title}</h3>
                 <p className={styles.activityDesc}>{activity.desc}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
