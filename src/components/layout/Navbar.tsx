@@ -67,7 +67,7 @@ export default function Navbar() {
         <Link href="/" className={styles.logo}>
           <div className={styles.logoWrapper}>
             <Image
-              src="/logo.jpeg"
+              src="/logo.png"
               alt="CIISS Logo"
               width={40}
               height={40}
