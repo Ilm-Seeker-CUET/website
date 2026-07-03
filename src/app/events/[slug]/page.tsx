@@ -1,0 +1,127 @@
+import { notFound } from "next/navigation";
+import { CURRENT_EVENT } from "@/lib/data";
+import styles from "./page.module.css";
+
+// For now only one event — will expand with Firebase later
+function getEventBySlug(slug: string) {
+  if (slug === CURRENT_EVENT.slug) return CURRENT_EVENT;
+  return null;
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const event = getEventBySlug(slug);
+  if (!event) return { title: "Event Not Found | CIISS" };
+  return {
+    title: `${event.title} | CIISS`,
+    description: event.description,
+  };
+}
+
+export default async function EventDetailPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const event = getEventBySlug(slug);
+  if (!event) notFound();
+
+  return (
+    <>
+      {/* ── Event Hero ── */}
+      <section className={styles.eventHero}>
+        <div className="container">
+          <div className={styles.heroInner}>
+            <span className={styles.heroBadge}>
+              {event.isUpcoming ? "Upcoming Event" : "Past Event"}
+            </span>
+            <h1 className={styles.heroTitle}>{event.title}</h1>
+            <p className={styles.heroTagline}>{event.tagline}</p>
+            <div className={styles.heroMeta}>
+              <div className={styles.metaItem}>
+                <span className={styles.metaIcon}>📅</span>
+                <span>{event.date}</span>
+              </div>
+              <div className={styles.metaItem}>
+                <span className={styles.metaIcon}>📍</span>
+                <span>{event.location}</span>
+              </div>
+              <div className={styles.metaItem}>
+                <span className={styles.metaIcon}>🎯</span>
+                <span>{event.segments.length} Segments</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Event Description ── */}
+      <section className="section-sm">
+        <div className="container">
+          <div className={styles.descriptionBlock}>
+            <div className="gold-line" />
+            <p className={styles.descriptionText}>{event.description}</p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Segments ── */}
+      <section className={`${styles.segmentsSection} section`}>
+        <div className="container">
+          <p className="section-label">Program Schedule</p>
+          <h2 className="section-title">Event Segments</h2>
+          <p className="section-subtitle">
+            Each segment is carefully designed to deliver a unique experience.
+          </p>
+
+          <div className={styles.segmentsList}>
+            {event.segments.map((seg, i) => (
+              <div
+                key={seg.id}
+                className={styles.segmentBlock}
+                id={seg.id}
+              >
+                <div className={styles.segmentHeader}>
+                  <span className={styles.segmentNum}>
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div className={styles.segmentHeaderText}>
+                    <h3 className={styles.segmentTitle}>{seg.title}</h3>
+                    <span className={styles.segmentDate}>{seg.date}</span>
+                  </div>
+                </div>
+
+                <p className={styles.segmentDescription}>{seg.description}</p>
+
+                <ul className={styles.segmentDetails}>
+                  {seg.details.map((detail, j) => (
+                    <li key={j} className={styles.detailItem}>
+                      <span className={styles.detailBullet}>✦</span>
+                      <span>{detail}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                {seg.registrationUrl && (
+                  <a
+                    href={seg.registrationUrl}
+                    className="btn btn-gold"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Register for {seg.title} →
+                  </a>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
