@@ -1,5 +1,6 @@
 export interface Segment {
   id: string;
+  slug: string;
   title: string;
   date: string;
   description: string;

@@ -99,16 +99,13 @@ export default function Home() {
                   <h3 className={styles.segmentTitle}>{seg.title}</h3>
                   <p className={styles.segmentDate}>{seg.date}</p>
                   <p className={styles.segmentDesc}>{seg.description}</p>
-                  {seg.registrationUrl && (
-                    <a
-                      href={seg.registrationUrl}
-                      className="btn btn-primary"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Register Now
-                    </a>
-                  )}
+                  <Link
+                    href={`/events/${CURRENT_EVENT.slug}/${seg.slug}`}
+                    className="btn btn-outline"
+                    style={{ marginTop: "var(--space-md)" }}
+                  >
+                    View Details →
+                  </Link>
                 </div>
               </Reveal>
             ))}

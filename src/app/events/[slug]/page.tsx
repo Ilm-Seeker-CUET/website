@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
+import Link from "next/link";
 import Reveal from "@/components/ui/Reveal";
 import { CURRENT_EVENT } from "@/lib/data";
 import styles from "./page.module.css";
@@ -127,25 +128,14 @@ export default async function EventDetailPage({
 
                   <p className={styles.segmentDescription}>{seg.description}</p>
 
-                  <ul className={styles.segmentDetails}>
-                    {seg.details.map((detail, j) => (
-                      <li key={j} className={styles.detailItem}>
-                        <span className={styles.detailBullet}>✦</span>
-                        <span>{detail}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  {seg.registrationUrl && (
-                    <a
-                      href={seg.registrationUrl}
-                      className="btn btn-gold"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                  <div style={{ marginTop: "var(--space-md)" }}>
+                    <Link
+                      href={`/events/${event.slug}/${seg.slug}`}
+                      className="btn btn-outline"
                     >
-                      Register for {seg.title} →
-                    </a>
-                  )}
+                      View Segment Details →
+                    </Link>
+                  </div>
                 </div>
               </Reveal>
             ))}

@@ -16,6 +16,7 @@ export const CURRENT_EVENT: CIISSEvent = {
   segments: [
     {
       id: "quiz-competition",
+      slug: "quiz-competition",
       title: "Quiz Competition",
       date: "Jul 6–8, 2026",
       description:
@@ -30,6 +31,7 @@ export const CURRENT_EVENT: CIISSEvent = {
     },
     {
       id: "sunnah-presentation",
+      slug: "sunnah-presentation",
       title: "Sunnah Presentation",
       date: "Jul 8, 2026",
       description:
@@ -43,6 +45,7 @@ export const CURRENT_EVENT: CIISSEvent = {
     },
     {
       id: "book-fair",
+      slug: "book-fair",
       title: "Book Fair",
       date: "Jul 8, 2026",
       description:
@@ -55,6 +58,7 @@ export const CURRENT_EVENT: CIISSEvent = {
     },
     {
       id: "mahfil",
+      slug: "mahfil",
       title: "Grand Mahfil",
       date: "Jul 9, 2026",
       description:
@@ -69,6 +73,7 @@ export const CURRENT_EVENT: CIISSEvent = {
     },
     {
       id: "prize-giving",
+      slug: "prize-giving",
       title: "Prize Giving Ceremony",
       date: "Jul 9, 2026",
       description:
