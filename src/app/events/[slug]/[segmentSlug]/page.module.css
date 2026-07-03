@@ -12,13 +12,21 @@
   position: absolute;
   inset: 0;
   z-index: 0;
-  opacity: 0.15;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: 
+    linear-gradient(to bottom, transparent 0%, transparent 60%, var(--color-bg) 100%),
+    linear-gradient(to right, rgba(10, 18, 14, 0.95) 0%, rgba(10, 18, 14, 0.85) 40%, rgba(10, 18, 14, 0.6) 100%);
+  z-index: 1;
 }
 
 .heroBgImage {
   object-fit: cover;
-  filter: blur(20px) saturate(1.5);
-  transform: scale(1.1);
+  object-position: center;
+  opacity: 0.35;
 }
 
 .heroInner {

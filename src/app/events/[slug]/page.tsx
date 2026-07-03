@@ -34,20 +34,23 @@ export default async function EventDetailPage({
   const event = getEventBySlug(slug);
   if (!event) notFound();
 
+  const bgImage = event.bgImage || event.image;
+
   return (
     <>
       {/* ── Event Hero ── */}
       <section className={styles.eventHero}>
         {/* Background poster overlay */}
-        {event.image && (
+        {bgImage && (
           <div className={styles.heroBg}>
             <Image
-              src={event.image}
+              src={bgImage}
               alt=""
               fill
               className={styles.heroBgImage}
               priority
             />
+            <div className={styles.heroOverlay} />
           </div>
         )}
         <div className="container">

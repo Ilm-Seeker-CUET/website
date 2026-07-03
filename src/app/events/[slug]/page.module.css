@@ -29,10 +29,19 @@
   z-index: 0;
 }
 
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: 
+    linear-gradient(to bottom, transparent 0%, transparent 60%, var(--color-bg) 100%),
+    linear-gradient(to right, rgba(10, 18, 14, 0.95) 0%, rgba(10, 18, 14, 0.85) 40%, rgba(10, 18, 14, 0.6) 100%);
+  z-index: 1;
+}
+
 .heroBgImage {
   object-fit: cover;
-  opacity: 0.08;
-  filter: blur(20px);
+  object-position: center;
+  opacity: 0.35;
 }
 
 .heroInner {
@@ -60,11 +69,13 @@
 
 .heroPosterImg {
   display: block;
-  width: 320px;
+  width: 350px;
   height: auto;
   border-radius: var(--radius-xl);
   object-fit: cover;
 }
+
+
 
 .heroBadge {
   display: inline-flex;
@@ -137,8 +148,7 @@
 
 /* ── Segments Section ── */
 .segmentsSection {
-  background: var(--color-bg-elevated);
-  border-top: 1px solid var(--color-border);
+  background: transparent;
 }
 
 .segmentsList {

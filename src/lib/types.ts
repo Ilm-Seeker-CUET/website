@@ -18,6 +18,7 @@ export interface CIISSEvent {
   location: string;
   description: string;
   image?: string;
+  bgImage?: string;
   isUpcoming: boolean;
   isFeatured?: boolean;
   segments: Segment[];

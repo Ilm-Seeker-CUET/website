@@ -37,20 +37,22 @@ export default async function SegmentDetailPage({
   if (!data) notFound();
 
   const { event, segment } = data;
-  const displayImage = segment.image || event.image;
+  const bgImage = event.bgImage;
+  const posterImage = segment.image;
 
   return (
     <>
       <section className={styles.segmentHero}>
-        {displayImage && (
+        {bgImage && (
           <div className={styles.heroBg}>
             <Image
-              src={displayImage}
+              src={bgImage}
               alt=""
               fill
               className={styles.heroBgImage}
               priority
             />
+            <div className={styles.heroOverlay} />
           </div>
         )}
         <div className="container">
@@ -67,10 +69,10 @@ export default async function SegmentDetailPage({
                 </div>
               </div>
             </Reveal>
-            {displayImage && (
+            {posterImage && (
               <Reveal className={styles.heroPoster} direction="right">
                 <Image
-                  src={displayImage}
+                  src={posterImage}
                   alt={segment.title}
                   width={400}
                   height={400}
