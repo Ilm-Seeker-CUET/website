@@ -97,7 +97,7 @@ export default function Navbar() {
             href={`/events/${CURRENT_EVENT.slug}`}
             className={`${styles.navCta}`}
           >
-            <span className={styles.ctaLabel}>Mahfil 2026</span>
+            <span className={styles.ctaLabel}>Islamic Week 2026</span>
             {countdown && (
               <span className={styles.ctaCountdown}>{countdown}</span>
             )}
@@ -133,7 +133,7 @@ export default function Navbar() {
           className={`${styles.navCta}`}
           onClick={() => setMenuOpen(false)}
         >
-          <span className={styles.ctaLabel}>Mahfil 2026</span>
+          <span className={styles.ctaLabel}>Islamic Week 2026</span>
           {countdown && (
             <span className={styles.ctaCountdown}>{countdown}</span>
           )}

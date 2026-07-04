@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     "Islamic Society",
     "Ilm Seeker",
     "CIISS",
-    "Islamic Mahfil",
+    "Islamic Week",
     "Chittagong University of Engineering and Technology",
   ],
 };

@@ -52,7 +52,7 @@ export default function Footer() {
             <h4>Events</h4>
             <ul>
               <li>
-                <Link href="/events">Islamic Mahfil 2026</Link>
+                <Link href="/events/islamic-week-2026">Islamic Week 2026</Link>
               </li>
               <li>
                 <Link href="/events">Past Events</Link>

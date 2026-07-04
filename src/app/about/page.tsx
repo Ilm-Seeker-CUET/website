@@ -52,7 +52,7 @@ export default function AboutPage() {
             {[
               {
                 icon: "📖",
-                title: "Islamic Mahfil",
+                title: "Islamic Week",
                 desc: "Grand annual gatherings with renowned scholars, heart-softening reminders, and collective worship for the entire CUET community.",
               },
               {

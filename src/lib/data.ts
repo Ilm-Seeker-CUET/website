@@ -2,16 +2,16 @@ import { CIISSEvent, PastEvent, ContactInfo } from "./types";
 
 // ── Current / Upcoming Event ──────────────────────────────────────
 export const CURRENT_EVENT: CIISSEvent = {
-  id: "islamic-mahfil-week-2026",
-  slug: "islamic-mahfil-week-2026",
-  title: "Islamic Mahfil Week 2026",
+  id: "islamic-week-2026",
+  slug: "islamic-week-2026",
+  title: "Islamic Week 2026",
   tagline: "A Grand Gathering of Faith, Knowledge & Brotherhood",
   date: "July 6–9, 2026",
   location: "CUET Campus",
   description:
     "The flagship annual event of CUET Islamic Ilm Seeker Society — a multi-day series featuring quiz competitions, Sunnah presentations, an Islamic book fair, and culminating in the Grand Mahfil with renowned Islamic scholar Professor Mokhter Ahmad.",
-  image: "/islamic-mahfil-week-2026.png",
-  bgImage: "/islamic-mahfil-week-2026-bg.png",
+  image: "/islamic-week-2026.png",
+  bgImage: "/islamic-week-2026-bg.png",
   isUpcoming: true,
   isFeatured: true,
   segments: [
