@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/ui/Reveal";
+import CountdownTimer from "@/components/ui/CountdownTimer";
 import { CURRENT_EVENT } from "@/lib/data";
 import styles from "./page.module.css";
 
@@ -61,6 +62,9 @@ export default async function EventDetailPage({
               </span>
               <h1 className={styles.heroTitle}>{event.title}</h1>
               <p className={styles.heroTagline}>{event.tagline}</p>
+              {event.isUpcoming && (
+                <CountdownTimer targetDate="2026-07-06T09:00:00+06:00" />
+              )}
               <div className={styles.heroMeta}>
                 <div className={styles.metaItem}>
                   <span className={styles.metaIcon}>📅</span>
