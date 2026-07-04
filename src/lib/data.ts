@@ -65,6 +65,19 @@ export const CURRENT_EVENT: CIISSEvent = {
       ],
     },
     {
+      id: "poster-presentation",
+      slug: "poster-presentation",
+      title: "Poster Presentation",
+      date: "Jul 8, 2026",
+      description:
+        "An engaging platform for students to visually present their research and insights connecting Islamic principles with modern engineering, science, and societal issues.",
+      details: [
+        "Interactive poster displays",
+        "Q&A with judges and visitors",
+        "Awards for most innovative presentations",
+      ],
+    },
+    {
       id: "book-fair",
       slug: "book-fair",
       title: "Book Fair",
