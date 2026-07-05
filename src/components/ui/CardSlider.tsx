@@ -7,15 +7,19 @@ interface CardSliderProps {
   children: React.ReactNode;
   /** How many cards to show at once on desktop (default 3) */
   visibleCount?: number;
+  /** Auto-slide interval in ms (default 4000). Set 0 to disable. */
+  autoPlayInterval?: number;
 }
 
 export default function CardSlider({
   children,
   visibleCount = 3,
+  autoPlayInterval = 4000,
 }: CardSliderProps) {
   const trackRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
+  const [isPaused, setIsPaused] = useState(false);
 
   const checkScroll = useCallback(() => {
     const el = trackRef.current;
@@ -36,24 +40,48 @@ export default function CardSlider({
     };
   }, [checkScroll]);
 
-  const scroll = (direction: "left" | "right") => {
-    const el = trackRef.current;
-    if (!el) return;
-    // Scroll by one card width + gap
-    const card = el.querySelector<HTMLElement>(`.${styles.slide}`);
-    if (!card) return;
-    const gap = 24; // matches var(--space-xl)
-    const scrollAmount = card.offsetWidth + gap;
-    el.scrollBy({
-      left: direction === "left" ? -scrollAmount : scrollAmount,
-      behavior: "smooth",
-    });
-  };
+  const scroll = useCallback(
+    (direction: "left" | "right") => {
+      const el = trackRef.current;
+      if (!el) return;
+      const card = el.querySelector<HTMLElement>(`.${styles.slide}`);
+      if (!card) return;
+      const gap = 24;
+      const scrollAmount = card.offsetWidth + gap;
+      el.scrollBy({
+        left: direction === "left" ? -scrollAmount : scrollAmount,
+        behavior: "smooth",
+      });
+    },
+    []
+  );
+
+  // Auto-slide: scroll right, loop back to start when reaching the end
+  useEffect(() => {
+    if (!autoPlayInterval || isPaused) return;
+
+    const timer = setInterval(() => {
+      const el = trackRef.current;
+      if (!el) return;
+
+      const atEnd = el.scrollLeft >= el.scrollWidth - el.clientWidth - 4;
+      if (atEnd) {
+        // Loop back to start
+        el.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        scroll("right");
+      }
+    }, autoPlayInterval);
+
+    return () => clearInterval(timer);
+  }, [autoPlayInterval, isPaused, scroll]);
 
   return (
     <div
       className={styles.slider}
       style={{ "--visible-count": visibleCount } as React.CSSProperties}
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
     >
       {/* Navigation Arrows */}
       <button

@@ -156,7 +156,7 @@ export default function Home() {
       </section>
 
       {/* ── Past Events ── */}
-      <section className="section">
+      <section className="section-sm">
         <div className="container">
           <Reveal>
             <p className="section-label">Our Journey</p>
