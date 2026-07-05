@@ -194,12 +194,28 @@ export const PAST_EVENTS: PastEvent[] = [
       "Major campus-wide distribution of Qur'an and relevant competitions.",
   },
   {
+    id: "cuet-islamic-seminar-2025",
+    title: "CUET Islamic Seminar 2025",
+    date: "Dec 15, 2025",
+    location: "CUET Campus",
+    description:
+      "A grand seminar featuring renowned speaker Jakaria Masud with online live stream arrangements.",
+  },
+  {
     id: "iftar-2026",
     title: "Iftar with CIISS 2026",
     date: "Feb 18, 2026",
     location: "CUET Campus",
     description:
       "Spiritual gathering leading into the blessed month of Ramadan.",
+  },
+  {
+    id: "hadith-in-cuet",
+    title: "Hadith in CUET",
+    date: "Apr 12, 2026",
+    location: "CUET Campus",
+    description:
+      "Free distribution of 'Imam Nawawi's 40 Hadith' across campus to awaken religious values.",
   },
 ];
 
