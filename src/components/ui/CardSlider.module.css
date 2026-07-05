@@ -2,6 +2,7 @@
 .slider {
   position: relative;
   width: 100%;
+  overflow: hidden;
 }
 
 .track {
@@ -97,8 +98,8 @@
     flex: 0 0 calc((100% - var(--space-xl)) / 2);
   }
 
-  .arrowLeft { left: -16px; }
-  .arrowRight { right: -16px; }
+  .arrowLeft { left: 4px; }
+  .arrowRight { right: 4px; }
 }
 
 @media (max-width: 640px) {
