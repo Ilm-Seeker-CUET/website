@@ -67,15 +67,19 @@ export const CURRENT_EVENT: CIISSEvent = {
     {
       id: "poster-presentation",
       slug: "poster-presentation",
-      title: "Poster Presentation",
+      title: "Islamic Poster Design Competition",
       date: "Jul 8, 2026",
+      image: "/poster-design-competition.jpeg",
       description:
-        "An engaging platform for students to visually present their research and insights connecting Islamic principles with modern engineering, science, and societal issues.",
+        "The CUET Islamic Ilm Seeker Society (CIISS) proudly presents the 'Islamic Poster Design Competition' as part of the Islamic Week 2026! Shortlisted designs will be exhibited during the main segments.",
       details: [
-        "Interactive poster displays",
-        "Q&A with judges and visitors",
-        "Awards for most innovative presentations",
+        "Themes: Sunnah, Quran, Seerah, Islamic History, Palestine, Uyghurs, Rohingya, and Indian Muslims",
+        "Eligibility: Open to all running batches of CUET (Batches '21 to '25)",
+        "Voting System: A public voting system will determine the champion",
+        "Rewards: Exciting prizes will be awarded to the champions!",
+        "Registration: Completely FREE!",
       ],
+      registrationUrl: "https://forms.gle/RxC7xooUgD774Rs68",
     },
     {
       id: "book-fair",
