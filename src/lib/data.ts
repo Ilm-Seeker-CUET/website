@@ -123,6 +123,32 @@ export const CURRENT_EVENT: CIISSEvent = {
         "Quiz Competition 2026 winners",
       ],
     },
+    {
+      id: "nasheed-presentation",
+      slug: "nasheed-presentation",
+      title: "Nasheed Presentation",
+      date: "Jul 9, 2026",
+      description:
+        "A soulful evening of Islamic Nasheeds and vocal performances by talented students, celebrating the beauty of Islamic art and culture.",
+      details: [
+        "Live vocal performances without musical instruments",
+        "Classic and contemporary Islamic Nasheeds",
+        "A relaxing and spiritually uplifting atmosphere",
+      ],
+    },
+    {
+      id: "palestinian-culture-exhibition",
+      slug: "palestinian-culture-exhibition",
+      title: "Palestinian Culture Exhibition",
+      date: "Jul 8, 2026",
+      description:
+        "An eye-opening exhibition showcasing the rich history, culture, and the unbreakable resilience of the Palestinian people.",
+      details: [
+        "Visual galleries covering the history of Al-Aqsa and Palestine",
+        "Cultural artifacts and historical timelines",
+        "Dedicated to raising awareness and solidarity",
+      ],
+    },
   ],
 };
 
