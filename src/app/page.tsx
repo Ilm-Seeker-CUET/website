@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import CountdownTimer from "@/components/ui/CountdownTimer";
 import Reveal from "@/components/ui/Reveal";
+import CardSlider from "@/components/ui/CardSlider";
 import { CURRENT_EVENT, PAST_EVENTS, SOCIETY_INFO } from "@/lib/data";
 import styles from "./page.module.css";
 
@@ -89,10 +90,10 @@ export default function Home() {
               several days.
             </p>
           </Reveal>
-          <div className={styles.segmentsGrid}>
-            {CURRENT_EVENT.segments.map((seg, i) => (
-              <Reveal key={seg.id} delay={i * 100} style={{ height: "100%" }}>
-                <div className={`glass-card ${styles.segmentCard}`} style={{ height: "100%" }}>
+          <Reveal>
+            <CardSlider visibleCount={3}>
+              {CURRENT_EVENT.segments.map((seg, i) => (
+                <div className={`glass-card ${styles.segmentCard}`} key={seg.id} style={{ height: "100%" }}>
                   <span className={styles.segmentNumber}>
                     {String(i + 1).padStart(2, "0")}
                   </span>
@@ -107,9 +108,9 @@ export default function Home() {
                     View Details →
                   </Link>
                 </div>
-              </Reveal>
-            ))}
-          </div>
+              ))}
+            </CardSlider>
+          </Reveal>
         </div>
       </section>
 
@@ -164,10 +165,10 @@ export default function Home() {
               A look back at the milestones of CIISS.
             </p>
           </Reveal>
-          <div className={styles.pastGrid}>
-            {PAST_EVENTS.map((event, i) => (
-              <Reveal key={event.id} delay={i * 100} style={{ height: "100%" }}>
-                <div className={`glass-card ${styles.pastCard}`} style={{ height: "100%" }}>
+          <Reveal>
+            <CardSlider visibleCount={3}>
+              {PAST_EVENTS.map((event) => (
+                <div className={`glass-card ${styles.pastCard}`} key={event.id} style={{ height: "100%" }}>
                   <span className={styles.pastDate}>{event.date}</span>
                   <h3 className={styles.pastTitle}>{event.title}</h3>
                   <p className={styles.pastDesc}>{event.description}</p>
@@ -175,9 +176,9 @@ export default function Home() {
                     📍 {event.location}
                   </span>
                 </div>
-              </Reveal>
-            ))}
-          </div>
+              ))}
+            </CardSlider>
+          </Reveal>
         </div>
       </section>
 

@@ -108,7 +108,6 @@ export const CURRENT_EVENT: CIISSEvent = {
         "Heart-softening reminders and collective worship",
         "Open to all CUET students, faculty, and staff",
       ],
-      registrationUrl: "#",
     },
     {
       id: "prize-giving",
