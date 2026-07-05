@@ -140,6 +140,7 @@ export const CURRENT_EVENT: CIISSEvent = {
       slug: "palestinian-culture-exhibition",
       title: "Palestinian Culture Exhibition",
       date: "Jul 8, 2026",
+      image: "/palestinian-culture-exhibition.jpg",
       description:
         "An eye-opening exhibition showcasing the rich history, culture, and the unbreakable resilience of the Palestinian people.",
       details: [
